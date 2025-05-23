@@ -8,30 +8,29 @@
         <h1 class="display-4 fw-bold text-primary mb-4">{{ title }}</h1>
           <div class="card">
             <div class="card-body">
-                <h3 class="card-title">About Project Noble</h3>
-                <p class="card-text">{{ message }}</p>
-                
+
+                <h4>What We Do</h4>                
                 <p>Project Noble provides a virtual alternative to physical poker chips for in-person Texas Hold Em games. Our service allows all players to join a game lobby on their individual devices, while we handle all chip management, side pots, and winnings calculations virtually.</p>
-                
+
+                <div class="mt-4">
+                    <h4>Our Mission</h4>
+                    <p>We aim to make poker more accessible to all by removing barriers like complex chip calculations and the need for physical poker chips. This way, you can play poker anytime and anywhere without having to plan days in advance.</p>
+                </div>
+
                 <div class="mt-4">
                     <h4>How It Works</h4>
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item">🎯 Players join a shared game lobby on their devices</li>
-                        <li class="list-group-item">🎪 Card game is still performed in person</li>
-                        <li class="list-group-item">💰 Virtual chip management eliminates physical chips</li>
-                        <li class="list-group-item">🧮 Automatic side pot and winnings calculations</li>
+                        <li class="list-group-item">🛜 Players join a shared game lobby on their devices</li>
                         <li class="list-group-item">📱 Each device acts as a personal chip management system</li>
-                        <li class="list-group-item">🔒 No actual money transfers - shows what you owe/won</li>
+                        <li class="list-group-item">🃏 Card game is still performed in person</li>
+                        <li class="list-group-item">🪙 Virtual chip management eliminates the need for physical chips</li>
+                        <li class="list-group-item">🧮 Automatic side pot and winnings calculations</li>
+                        <li class="list-group-item">💵 At the end of the game/when you leave - you are shown what you owe/won</li>
                     </ul>
                 </div>
                 
-                <div class="mt-4">
-                    <h4>Our Mission</h4>
-                    <p>Making poker more accessible to all by removing barriers like complex chip calculations and the need for physical poker chips.</p>
-                </div>
-                
                 <div class="alert alert-warning mt-4" role="alert">
-                    <strong>Important:</strong> This service handles NO actual transfers of money! It aims to show each user how much they owe the pot or have won by the time they decide to leave the game.
+                    <strong>Important:</strong> Our service handles NO actual transfers of money! That is handled outside of our service, to keep everyone's money as secure as possible.
                 </div>
                   <div class="mt-3">
                     <a href="{% url 'home:home' %}" class="btn btn-primary me-2">Back to Home</a>
