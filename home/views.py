@@ -21,8 +21,8 @@ def about(request):
 def contact(request):
     """Contact page view"""
     context = {
-        'title': 'Contact Us',
-        'message': 'Get in touch with us.',
+        'title': 'Contact Project Noble',
+        'message': 'Have questions about our virtual poker chip service? Get in touch with us.',
     }
     return render(request, 'home/contact.html', context)
 
