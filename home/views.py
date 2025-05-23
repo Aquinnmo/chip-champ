@@ -26,3 +26,7 @@ def page_detail(request, slug):
         'title': page.title,
     }
     return render(request, 'home/page_detail.html', context)
+
+def custom_404_view(request, exception):
+    """Custom 404 error page view"""
+    return render(request, '404.html', status=404)
