@@ -18,14 +18,6 @@ def about(request):
     }
     return render(request, 'home/about.html', context)
 
-def contact(request):
-    """Contact page view"""
-    context = {
-        'title': 'Contact Project Noble',
-        'message': 'Have questions about our virtual poker chip service? Get in touch with us.',
-    }
-    return render(request, 'home/contact.html', context)
-
 def page_detail(request, slug):
     """Dynamic page view"""
     page = get_object_or_404(Page, slug=slug, is_active=True)
