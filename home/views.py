@@ -6,7 +6,7 @@ def home(request):
     """Home page view"""
     context = {
         'title': 'Project Noble',
-        'message': 'Virtual poker chip management for in-person Texas Hold Em games. Making poker more accessible to all.',
+        'message': 'Virtual poker chip management for in-person Texas Hold \'Em games. Making poker more accessible to all.',
     }
     return render(request, 'home/home.html', context)
 

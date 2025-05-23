@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block title %}{{ title }} - Virtual Poker Chips{% endblock %}
 
@@ -6,10 +7,11 @@
 <div class="row">
     <div class="col-lg-8 mx-auto">
         <div class="hero-section text-center mb-5">
+            <img src="{% static 'images/pn_logo.png' %}" alt="Project Noble Logo" class="mb-4" style="max-width: 150px; height: auto;">
             <h1 class="display-4 fw-bold text-primary">{{ title }}</h1>
             <p class="lead">{{ message }}</p>
             <hr class="my-4">
-        </div>        <div class="row">
+        </div><div class="row">
             <div class="col-md-4 mb-4">
                 <div class="card h-100">
                     <div class="card-body">
