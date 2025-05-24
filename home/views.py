@@ -5,15 +5,15 @@ from .models import Page
 def home(request):
     """Home page view"""
     context = {
-        'title': 'Project Noble',
-        'message': 'Virtual poker chip management for in-person Texas Hold \'Em games. Making poker more accessible to all.',
+        'title': 'Chip Champ',
+        'message': 'The first user-friendly virtual poker chip alternative for in-person Texas Hold \'Em games.',
     }
     return render(request, 'home/home.html', context)
 
 def about(request):
     """About page view"""
     context = {
-        'title': 'About Project Noble',
+        'title': 'About Chip Champ',
         'message': 'Learn more about our virtual poker chip management service.',
     }
     return render(request, 'home/about.html', context)
