@@ -28,3 +28,12 @@ media/
 # OS
 .DS_Store
 Thumbs.db
+
+# Vercel
+.vercel
+
+# Static files for production
+staticfiles_build/
+
+# Additional static files
+staticfiles/
