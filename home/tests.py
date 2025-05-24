@@ -11,10 +11,6 @@ class HomeViewTests(TestCase):
         response = self.client.get(reverse('home:about'))
         self.assertEqual(response.status_code, 200)
 
-    def test_contact_page_status_code(self):
-        response = self.client.get(reverse('home:contact'))
-        self.assertEqual(response.status_code, 200)
-
 class PageModelTests(TestCase):
     def test_page_creation(self):
         page = Page.objects.create(

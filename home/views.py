@@ -5,26 +5,18 @@ from .models import Page
 def home(request):
     """Home page view"""
     context = {
-        'title': 'Welcome to Django Project',
-        'message': 'This is your home page. You can add more pages as needed.',
+        'title': 'Chip Champ',
+        'message': 'The first user-friendly virtual poker chip alternative for in-person Texas Hold \'Em games.',
     }
     return render(request, 'home/home.html', context)
 
 def about(request):
     """About page view"""
     context = {
-        'title': 'About Us',
-        'message': 'This is the about page.',
+        'title': 'About Chip Champ',
+        'message': 'Learn more about our virtual poker chip management service.',
     }
     return render(request, 'home/about.html', context)
-
-def contact(request):
-    """Contact page view"""
-    context = {
-        'title': 'Contact Us',
-        'message': 'Get in touch with us.',
-    }
-    return render(request, 'home/contact.html', context)
 
 def page_detail(request, slug):
     """Dynamic page view"""
@@ -34,3 +26,7 @@ def page_detail(request, slug):
         'title': page.title,
     }
     return render(request, 'home/page_detail.html', context)
+
+def custom_404_view(request, exception):
+    """Custom 404 error page view"""
+    return render(request, '404.html', status=404)
