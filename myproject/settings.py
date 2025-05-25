@@ -159,8 +159,14 @@ if not DEBUG:
     SECURE_HSTS_INCLUDE_SUBDOMAINS = True
     SECURE_HSTS_PRELOAD = True
     
+    # SSL and cookie security
+    SECURE_SSL_REDIRECT = True
+    SESSION_COOKIE_SECURE = True
+    CSRF_COOKIE_SECURE = True
+    SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+    
     # CSRF settings for Vercel
     CSRF_TRUSTED_ORIGINS = [
         'https://*.vercel.app',
-        'https://your-custom-domain.com',  # Replace with your actual domain
+        'https://chip-champ.adam-montgomery.ca',  # Your custom domain
     ]
