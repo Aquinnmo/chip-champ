@@ -1,0 +1,54 @@
+# Local development files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.venv/
+.env.local
+.env.development
+.env.test
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Git
+.git/
+.gitignore
+
+# Database
+db.sqlite3
+*.sqlite3
+
+# Logs
+*.log
+
+# Node modules (if any)
+node_modules/
+
+# Static files collected locally
+staticfiles/
+
+# Media files
+media/
+
+# Test coverage
+.coverage
+htmlcov/
+
+# Documentation
+docs/
+*.md
+!README.md
+
+# Development scripts
+test_*.py
