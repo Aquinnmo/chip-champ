@@ -33,7 +33,4 @@ Thumbs.db
 .vercel
 
 # Static files for production
-staticfiles_build/
-
-# Additional static files
 staticfiles/
