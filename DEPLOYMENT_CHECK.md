@@ -27,8 +27,12 @@
 
 ### 5. If Static Files Are Not Working
 
+#### Ensure Static Files Are Collected Before Deploying
+- The build process must run `python manage.py collectstatic --noinput` to copy static files into the `staticfiles/` directory.
+- This is handled automatically by the `build_files.sh` script during Vercel deployment.
+- If you add or change static files, always redeploy so the latest files are collected.
+
 #### Option A: Redeploy (Recommended)
-Since you updated the vercel.json file, you need to redeploy:
 1. Commit your changes: `git add . && git commit -m "Fix static files configuration"`
 2. Push to your repository: `git push`
 3. Vercel will automatically redeploy
@@ -43,11 +47,11 @@ vercel --prod
 
 **If CSS is not loading:**
 - Check that `/static/css/style.css` returns Status 200 in browser dev tools
-- If it returns 404, the static files routing is not working
+- If it returns 404, the static files routing or collection is not working
 
 **If images are not loading:**
 - Check that `/static/images/cc_logo.png` returns Status 200
-- If 404, same routing issue
+- If 404, same routing or collection issue
 
 **If nothing is styled:**
 - Check that the CSS file content is correct (not empty or error page)

@@ -151,6 +151,11 @@ STATICFILES_FINDERS = [
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
 ]
 
+# Ensure correct static files serving on Vercel
+if not DEBUG:
+    # Remove STATICFILES_DIRS in production to avoid duplicate file lookups
+    STATICFILES_DIRS = []
+
 # Media files
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
