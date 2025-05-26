@@ -1,6 +1,5 @@
 {
-  "version": 2,
-  "builds": [
+  "version": 2,  "builds": [
     {
       "src": "vercel_app.py",
       "use": "@vercel/python",
@@ -9,7 +8,7 @@
       }
     },
     {
-      "src": "build_files.sh",
+      "src": "package.json",
       "use": "@vercel/static-build",
       "config": {
         "distDir": "staticfiles_build"

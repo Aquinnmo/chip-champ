@@ -1,0 +1,259 @@
+/* Custom styles for Project Noble - Virtual Poker Chip Service */
+
+:root {
+    --primary-color: #2c5530;        /* Forest green - poker table felt */
+    --secondary-color: #8b4513;      /* Saddle brown - poker chips */
+    --success-color: #228b22;        /* Forest green variant */
+    --info-color: #4169e1;           /* Royal blue */
+    --warning-color: #ffd700;        /* Gold - poker accent */
+    --danger-color: #dc143c;         /* Crimson red */
+    --casino-gold: #ffd700;          /* Casino gold */
+    --felt-green: #0f5132;           /* Deep poker table green */
+    --chip-red: #dc3545;             /* Poker chip red */
+    --chip-blue: #0d6efd;            /* Poker chip blue */
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    background-color: #f8f9fa;
+    background-image: 
+        radial-gradient(circle at 25% 25%, rgba(44, 85, 48, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 75% 75%, rgba(255, 215, 0, 0.1) 0%, transparent 50%);
+}
+
+.hero-section {
+    padding: 3rem 0;
+    background: linear-gradient(135deg, var(--felt-green) 0%, var(--primary-color) 50%, #1a472a 100%);
+    color: white;
+    border-radius: 15px;
+    margin-bottom: 2rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+        radial-gradient(circle at 20% 80%, rgba(255, 215, 0, 0.2) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(255, 215, 0, 0.2) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+.hero-section h1 {
+    color: white !important;
+}
+
+.card {
+    border: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 12px;
+    background: linear-gradient(145deg, #ffffff 0%, #f8f9fa 100%);
+    border-left: 4px solid var(--casino-gold);
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
+    border-left-color: var(--primary-color);
+}
+
+.card-title {
+    color: var(--felt-green);
+    font-weight: 600;
+}
+
+.navbar-brand {
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: var(--casino-gold) !important;
+}
+
+.btn {
+    border-radius: 25px;
+    padding: 0.6rem 1.8rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-size: 0.9rem;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--felt-green) 100%);
+    border: none;
+    box-shadow: 0 4px 8px rgba(44, 85, 48, 0.3);
+}
+
+.btn-primary:hover {
+    background: linear-gradient(135deg, var(--felt-green) 0%, var(--primary-color) 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(44, 85, 48, 0.4);
+}
+
+.btn-secondary {
+    background: linear-gradient(135deg, var(--secondary-color) 0%, #a0522d 100%);
+    border: none;
+    box-shadow: 0 4px 8px rgba(139, 69, 19, 0.3);
+}
+
+.btn-secondary:hover {
+    background: linear-gradient(135deg, #a0522d 0%, var(--secondary-color) 100%);
+    transform: translateY(-2px);
+}
+
+.btn-success {
+    background: linear-gradient(135deg, var(--casino-gold) 0%, #ffed4e 100%);
+    border: none;
+    color: #333;
+    box-shadow: 0 4px 8px rgba(255, 215, 0, 0.3);
+}
+
+.btn-success:hover {
+    background: linear-gradient(135deg, #ffed4e 0%, var(--casino-gold) 100%);
+    color: #333;
+    transform: translateY(-2px);
+}
+
+footer {
+    margin-top: auto;
+}
+
+.page-content {
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+/* Form styles */
+.form-control {
+    border-radius: 8px;
+    border: 2px solid #e9ecef;
+    transition: border-color 0.3s ease;
+}
+
+.form-control:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.2rem rgba(44, 85, 48, 0.25);
+}
+
+/* Poker-themed elements */
+.alert-info {
+    background: linear-gradient(135deg, rgba(44, 85, 48, 0.1) 0%, rgba(255, 215, 0, 0.1) 100%);
+    border-left: 4px solid var(--casino-gold);
+    border-radius: 8px;
+}
+
+.alert-warning {
+    background: linear-gradient(135deg, rgba(255, 215, 0, 0.1) 0%, rgba(255, 193, 7, 0.1) 100%);
+    border-left: 4px solid var(--casino-gold);
+    border-radius: 8px;
+}
+
+.text-primary {
+    color: var(--felt-green) !important;
+}
+
+/* Poker chip icons */
+.chip-icon {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    margin-right: 8px;
+    border: 2px solid #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.chip-red { background-color: var(--chip-red); }
+.chip-blue { background-color: var(--chip-blue); }
+.chip-gold { background-color: var(--casino-gold); }
+.chip-green { background-color: var(--primary-color); }
+
+/* Navigation styling */
+.navbar-dark {
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%) !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.navbar-nav .nav-link {
+    color: #fff !important;
+    transition: color 0.3s ease;
+    font-weight: 500;
+}
+
+.navbar-nav .nav-link:hover {
+    color: var(--casino-gold) !important;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+}
+
+.card {
+    animation: fadeInUp 0.6s ease forwards;
+}
+
+.card:nth-child(2) {
+    animation-delay: 0.1s;
+}
+
+.card:nth-child(3) {
+    animation-delay: 0.2s;
+}
+
+/* Gold shimmer effect for special elements */
+.gold-shimmer {
+    background: linear-gradient(
+        90deg,
+        var(--casino-gold) 0%,
+        #fff 50%,
+        var(--casino-gold) 100%
+    );
+    background-size: 200% 100%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shimmer 3s ease-in-out infinite;
+}
+
+/* Poker table felt texture effect */
+.felt-texture {
+    background-image: 
+        repeating-linear-gradient(
+            45deg,
+            transparent,
+            transparent 1px,
+            rgba(255, 255, 255, 0.03) 1px,
+            rgba(255, 255, 255, 0.03) 2px
+        );
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .hero-section {
+        padding: 2rem 0;
+    }
+    
+    .display-4 {
+        font-size: 2rem;
+    }
+}
