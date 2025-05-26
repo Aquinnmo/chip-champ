@@ -132,7 +132,7 @@ STATICFILES_DIRS = [
 ]
 
 # Static files configuration for all environments
-STATIC_ROOT = BASE_DIR / 'staticfiles'
+STATIC_ROOT = BASE_DIR / 'staticfiles_build'  # Changed from 'staticfiles'
 
 # Use basic WhiteNoise storage for better Vercel compatibility
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'

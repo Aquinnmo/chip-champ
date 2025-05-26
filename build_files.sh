@@ -16,19 +16,19 @@ export VERCEL_ENV=production
 echo "Collecting static files..."
 python3 manage.py collectstatic --noinput --clear --verbosity=2
 
-# Create staticfiles directory if it doesn't exist
-mkdir -p staticfiles
+# Create staticfiles_build directory if it doesn't exist
+mkdir -p staticfiles_build # Changed from staticfiles
 
-# Set proper permissions for staticfiles directory
-chmod -R 755 staticfiles
+# Set proper permissions for staticfiles_build directory
+chmod -R 755 staticfiles_build # Changed from staticfiles
 
-# List staticfiles directory to verify collection
-echo "Static files collected. Contents of staticfiles directory:"
-ls -la staticfiles/
+# List staticfiles_build directory to verify collection
+echo "Static files collected. Contents of staticfiles_build directory:"
+ls -la staticfiles_build/ # Changed from staticfiles
 
 echo "Build completed successfully!"
 
-# Ensure staticfiles directory has proper permissions
-chmod -R 755 staticfiles/
+# Ensure staticfiles_build directory has proper permissions
+chmod -R 755 staticfiles_build/ # Changed from staticfiles
 
 echo "Build script completed!"
