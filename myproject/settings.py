@@ -139,11 +139,9 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
 
 # WhiteNoise configuration optimized for Vercel
 WHITENOISE_USE_FINDERS = True
-WHITENOISE_AUTOREFRESH = True  
+WHITENOISE_AUTOREFRESH = DEBUG  # Only auto-refresh in debug mode
 WHITENOISE_SKIP_COMPRESS_EXTENSIONS = ['jpg', 'jpeg', 'png', 'gif', 'webp', 'zip', 'gz', 'tgz', 'bz2', 'tbz', 'xz', 'br']
-
-# Serve static files directly without Vercel's static build
-WHITENOISE_STATIC_PREFIX = '/static/'
+WHITENOISE_MAX_AGE = 31536000 if not DEBUG else 0  # Cache for 1 year in production
 
 # Additional static files settings for better Vercel compatibility
 STATICFILES_FINDERS = [
@@ -151,12 +149,8 @@ STATICFILES_FINDERS = [
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
 ]
 
-# Remove STATICFILES_DIRS entirely in production to avoid any static lookup issues
-if not DEBUG:
-    try:
-        del STATICFILES_DIRS
-    except NameError:
-        pass
+# Note: Keep STATICFILES_DIRS for collectstatic to work properly
+# It's only used during collection, not serving in production
 
 # Media files
 MEDIA_URL = '/media/'
