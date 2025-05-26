@@ -1,5 +1,6 @@
 {
-  "version": 2,  "builds": [
+  "version": 2,
+  "builds": [
     {
       "src": "vercel_app.py",
       "use": "@vercel/python",
@@ -18,7 +19,14 @@
   "routes": [
     {
       "src": "/static/(.*)",
-      "dest": "/staticfiles_build/$1"
+      "dest": "/staticfiles_build/$1",
+      "headers": {
+        "Cache-Control": "public, max-age=31536000, immutable"
+      }
+    },
+    {
+      "src": "/favicon.ico",
+      "dest": "/staticfiles_build/images/cc_logo.png"
     },
     {
       "src": "/(.*)",
@@ -27,5 +35,10 @@
   ],
   "env": {
     "DJANGO_SETTINGS_MODULE": "myproject.settings"
+  },
+  "functions": {
+    "vercel_app.py": {
+      "maxDuration": 30
+    }
   }
 }

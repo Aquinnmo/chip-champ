@@ -131,26 +131,30 @@ STATICFILES_DIRS = [
     BASE_DIR / 'static',
 ]
 
-# Static files configuration for all environments
-STATIC_ROOT = BASE_DIR / 'staticfiles_build'  # Changed from 'staticfiles'
+# Static files configuration for production (Vercel)
+STATIC_ROOT = BASE_DIR / 'staticfiles_build'
 
-# Use basic WhiteNoise storage for better Vercel compatibility
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
+# For Vercel deployment - disable WhiteNoise storage compression
+# as Vercel handles static files directly
+if config('VERCEL_ENV', default=None):
+    # On Vercel, don't use WhiteNoise for static files serving
+    # Vercel will serve static files directly from staticfiles_build
+    STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
+else:
+    # Use WhiteNoise for local development and other deployments
+    STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
 
-# WhiteNoise configuration optimized for Vercel
+# WhiteNoise configuration (used when not on Vercel)
 WHITENOISE_USE_FINDERS = True
-WHITENOISE_AUTOREFRESH = DEBUG  # Only auto-refresh in debug mode
+WHITENOISE_AUTOREFRESH = DEBUG
 WHITENOISE_SKIP_COMPRESS_EXTENSIONS = ['jpg', 'jpeg', 'png', 'gif', 'webp', 'zip', 'gz', 'tgz', 'bz2', 'tbz', 'xz', 'br']
-WHITENOISE_MAX_AGE = 31536000 if not DEBUG else 0  # Cache for 1 year in production
+WHITENOISE_MAX_AGE = 31536000 if not DEBUG else 0
 
-# Additional static files settings for better Vercel compatibility
+# Static files finders
 STATICFILES_FINDERS = [
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
 ]
-
-# Note: Keep STATICFILES_DIRS for collectstatic to work properly
-# It's only used during collection, not serving in production
 
 # Media files
 MEDIA_URL = '/media/'

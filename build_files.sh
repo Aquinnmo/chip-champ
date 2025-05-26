@@ -12,6 +12,11 @@ export DJANGO_SETTINGS_MODULE=myproject.settings
 export DEBUG=False
 export VERCEL_ENV=production
 
+# Clean up any existing static files to ensure fresh build
+echo "Cleaning up existing static files..."
+rm -rf staticfiles_build
+mkdir -p staticfiles_build
+
 # Collect static files
 echo "Collecting static files..."
 python3 manage.py collectstatic --noinput --clear --verbosity=2
@@ -23,32 +28,39 @@ if [ -d "staticfiles_build" ]; then
     file_count=$(find staticfiles_build -type f | wc -l)
     echo "✓ Found $file_count files in staticfiles_build"
     
+    # List the structure for debugging
+    echo "Static files structure:"
+    find staticfiles_build -type f | head -20
+    
     # Check for critical files
     if [ -f "staticfiles_build/css/style.css" ]; then
         echo "✓ CSS file found"
+        css_size=$(wc -c < "staticfiles_build/css/style.css")
+        echo "  CSS file size: $css_size bytes"
     else
         echo "⚠ CSS file not found in staticfiles_build"
     fi
     
     if [ -f "staticfiles_build/images/cc_logo.png" ]; then
         echo "✓ Logo file found"
+        logo_size=$(wc -c < "staticfiles_build/images/cc_logo.png")
+        echo "  Logo file size: $logo_size bytes"
     else
         echo "⚠ Logo file not found in staticfiles_build"
     fi
+    
+    if [ -f "staticfiles_build/js/main.js" ]; then
+        echo "✓ JavaScript file found"
+    else
+        echo "⚠ JavaScript file not found in staticfiles_build"
+    fi
 else
     echo "✗ staticfiles_build directory not found!"
-    echo "Attempting to create and populate staticfiles_build..."
-    
-    # Create directory manually
-    mkdir -p staticfiles_build
-    
-    # Check if staticfiles exists (old default location)
-    if [ -d "staticfiles" ]; then
-        echo "Found staticfiles directory, copying to staticfiles_build..."
-        cp -r staticfiles/* staticfiles_build/
-    else
-        echo "Creating minimal staticfiles_build structure..."
-        mkdir -p staticfiles_build/css
+    echo "Build failed - static files collection unsuccessful"
+    exit 1
+fi
+
+echo "✓ Static files build completed successfully"
         mkdir -p staticfiles_build/js
         mkdir -p staticfiles_build/images
         
