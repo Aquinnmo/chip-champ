@@ -16,15 +16,22 @@
   "routes": [
     {
       "src": "/static/(.*)",
-      "dest": "/staticfiles/$1"
+      "dest": "/staticfiles/$1",
+      "headers": {
+        "Cache-Control": "public, max-age=31536000"
+      }
     },
     {
       "src": "/staticfiles/(.*)",
-      "dest": "/staticfiles/$1"
+      "dest": "/staticfiles/$1",
+      "headers": {
+        "Cache-Control": "public, max-age=31536000"
+      }
     },
     {
       "src": "/(.*)",
       "dest": "vercel_app.py"
     }
-  ]
+  ],
+  "outputDirectory": "staticfiles"
 }
