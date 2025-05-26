@@ -134,20 +134,16 @@ STATICFILES_DIRS = [
 # Static files configuration for all environments
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 
-# WhiteNoise configuration for static files
-# Use different storage based on environment
-if config('VERCEL_ENV', default=None):
-    # For Vercel deployment, use basic WhiteNoise storage without compression
-    # This helps avoid issues with compressed static files on Vercel
-    STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
-    # Additional settings for Vercel
-    WHITENOISE_USE_FINDERS = True
-    WHITENOISE_AUTOREFRESH = True
-    # Set max age for static files caching
-    WHITENOISE_MAX_AGE = 31536000  # 1 year
-else:
-    # For local development and other deployments
-    STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
+# Use basic WhiteNoise storage for better Vercel compatibility
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
+
+# WhiteNoise configuration optimized for Vercel
+WHITENOISE_USE_FINDERS = True
+WHITENOISE_AUTOREFRESH = True  
+WHITENOISE_SKIP_COMPRESS_EXTENSIONS = ['jpg', 'jpeg', 'png', 'gif', 'webp', 'zip', 'gz', 'tgz', 'bz2', 'tbz', 'xz', 'br']
+
+# Serve static files directly without Vercel's static build
+WHITENOISE_STATIC_PREFIX = '/static/'
 
 # Additional static files settings for better Vercel compatibility
 STATICFILES_FINDERS = [
