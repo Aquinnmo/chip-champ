@@ -151,6 +151,13 @@ STATICFILES_FINDERS = [
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
 ]
 
+# Remove STATICFILES_DIRS entirely in production to avoid any static lookup issues
+if not DEBUG:
+    try:
+        del STATICFILES_DIRS
+    except NameError:
+        pass
+
 # Media files
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
