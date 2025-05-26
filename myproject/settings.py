@@ -131,11 +131,8 @@ STATICFILES_DIRS = [
     BASE_DIR / 'static',
 ]
 
-# Static files configuration for production
-if not DEBUG:
-    STATIC_ROOT = BASE_DIR / 'staticfiles_build' / 'static'
-else:
-    STATIC_ROOT = BASE_DIR / 'staticfiles'
+# Static files configuration for all environments
+STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 # WhiteNoise configuration for static files
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
