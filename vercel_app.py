@@ -12,14 +12,13 @@ os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'myproject.settings')
 # Setup Django
 django.setup()
 
-# Collect static files during deployment (only in production)
-if not settings.DEBUG:
-    try:
-        from django.core.management import call_command
-        call_command('collectstatic', '--noinput', '--clear')
-        print("Static files collected successfully")
-    except Exception as e:
-        print(f"Static files collection failed: {e}")
+# Always collect static files during deployment
+try:
+    from django.core.management import call_command
+    call_command('collectstatic', '--noinput', '--clear')
+    print("Static files collected successfully")
+except Exception as e:
+    print(f"Static files collection failed: {e}")
 
 application = get_wsgi_application()
 
