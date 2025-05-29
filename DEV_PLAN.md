@@ -52,6 +52,10 @@ TypeScript Node.js service made from scratch, using `/noble_terminal` as a loose
 3. **MongoDB**: Game history, player statistics, completed games
 4. **React State**: Local UI state with Socket.IO synchronization
 
+## Throughout Development
+
+**DURING THE ENTIRE DEVELOPMENT PROCESS** you will test any changes with rigourous unittesting. unittests will be added vigourously.
+
 ## Development Phases
 
 ### Phase 1: Backend Infrastructure & Core API (Week 1-2)
